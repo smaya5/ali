@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 from decouple import config, Csv
 import cloudinary
 import cloudinary.uploader
@@ -29,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # تطبيقاتك الخاصة
+    # تطبيقات المشروع
     'store',
     'dashboard',
     'accounts',
@@ -50,10 +49,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# المسارات
+# ملف المسارات
 ROOT_URLCONF = 'ali3.urls'
 
-# القوالب
+# إعداد القوالب
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -93,7 +92,7 @@ else:
         }
     }
 
-# تحقق كلمات المرور
+# تحقق من كلمات المرور
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -111,7 +110,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Cloudinary للوسائط
+# إعداد Cloudinary للوسائط
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config("CLOUD_NAME"),
     'API_KEY': config("API_KEY"),
@@ -119,7 +118,7 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# إعداد البريد الإلكتروني
+# إعدادات البريد الإلكتروني
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -128,5 +127,5 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# الحقل الافتراضي للمفاتيح
+# الإعداد الافتراضي للمفاتيح
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
